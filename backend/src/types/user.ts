@@ -1,3 +1,5 @@
+import type { UserPosition } from "../../generated/prisma/enums";
+
 export interface CreateUserInput {
   firstName: string;
   lastName: string;
@@ -9,4 +11,9 @@ export interface CreateUserInput {
 export interface LoginUserInput {
   email: string;
   password: string;
+}
+
+export interface JwtPayload {
+  sub: string;
+  position: UserPosition;
 }

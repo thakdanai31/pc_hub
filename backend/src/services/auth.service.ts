@@ -34,7 +34,7 @@ export const AuthService = {
     //Find user existing by email
     const existingUser = await UserModel.getByEmail(payload.email);
     if (!existingUser) {
-      throw new AppError(400, "Email is already exists");
+      throw new AppError(404, "User not found");
     }
 
     const isMatch = await bcrypt.compare(
@@ -48,9 +48,12 @@ export const AuthService = {
     //Generate JWT
 
     const token = jwt.sign(
+      //payload
       { sub: existingUser.id, position: existingUser.position },
+      //Secret key
       JWT_SECRET_KEY,
       {
+        //Expire Date
         expiresIn: "1H",
       },
     );

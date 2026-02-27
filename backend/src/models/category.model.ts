@@ -10,18 +10,20 @@ export const CategoryModel = {
   },
 
   getAll() {
-    return prisma.category.findMany();
+    return prisma.category.findMany({
+      where: { status: "ACTIVE" },
+    });
   },
 
   getById(id: number) {
     return prisma.category.findFirst({
-      where: { id },
+      where: { id, status: "ACTIVE" },
     });
   },
 
   getByname(name: string) {
     return prisma.category.findFirst({
-      where: { name },
+      where: { name, status: "ACTIVE" },
     });
   },
 
@@ -37,5 +39,10 @@ export const CategoryModel = {
       where: { id },
     });
   },
-  softDelete() {},
+  softDelete(id: number) {
+    return prisma.category.update({
+      where: { id },
+      data: { status: "INACTIVE" },
+    });
+  },
 };
