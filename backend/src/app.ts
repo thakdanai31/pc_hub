@@ -13,6 +13,7 @@ const app = express();
 app.use(express.json());
 app.use("/categories", CategoryRoutes);
 app.use("/auth", AuthRoutes);
+
 app.use(errorHandler);
 // สงออก app (express) ออกไปเป็นแบบ module
 export default app;
