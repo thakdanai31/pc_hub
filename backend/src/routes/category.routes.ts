@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { CategoryController } from "../controllers/category.controller";
-import { anthenticate } from "../middlewares/antenticate";
+import { anthenticate } from "../middlewares/authenticate";
 
 const router = Router();
 
