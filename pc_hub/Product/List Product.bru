@@ -1,0 +1,15 @@
+meta {
+  name: List Product
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:3001/products
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

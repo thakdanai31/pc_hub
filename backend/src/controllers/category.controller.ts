@@ -59,4 +59,26 @@ export const CategoryController = {
       next(error);
     }
   },
+  async remove(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      const NumId = Number(id);
+      const removedCategory = await CategoryService.removeCategory(NumId);
+      res.json({ message: `Removed Category ID ${removedCategory.id}` });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  async restore(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      const NumId = Number(id);
+      const restoredCateCategory =
+        await CategoryService.restoreCateCategory(NumId);
+      res.json({ message: `Restored Category ID ${restoredCateCategory.id}` });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

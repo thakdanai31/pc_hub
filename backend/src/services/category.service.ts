@@ -39,4 +39,23 @@ export const CategoryService = {
     }
     return await CategoryModel.hardDelete(id);
   },
+
+  async removeCategory(id: number) {
+    const category = await CategoryModel.getById(id);
+    if (!category) {
+      throw new AppError(404, `Category ID ${id} not found`);
+    }
+    return await CategoryModel.softDelete(id);
+  },
+
+  async restoreCateCategory(id: number) {
+    const category = await CategoryModel.getById(id);
+    if (!category) {
+      throw new AppError(404, `Category ID ${id} not found`);
+    }
+    if (category.status !== "INACTIVE") {
+      throw new AppError(400, "Category is Active now (no change)");
+    }
+    return await CategoryModel.restore(id);
+  },
 };

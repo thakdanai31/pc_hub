@@ -12,12 +12,17 @@ export const CategoryModel = {
   getAll() {
     return prisma.category.findMany({
       where: { status: "ACTIVE" },
+      include: {
+        products: {
+          select: { id: true, name: true },
+        },
+      },
     });
   },
 
   getById(id: number) {
     return prisma.category.findFirst({
-      where: { id, status: "ACTIVE" },
+      where: { id },
     });
   },
 
@@ -43,6 +48,12 @@ export const CategoryModel = {
     return prisma.category.update({
       where: { id },
       data: { status: "INACTIVE" },
+    });
+  },
+  restore(id: number) {
+    return prisma.category.update({
+      where: { id },
+      data: { status: "ACTIVE" },
     });
   },
 };
