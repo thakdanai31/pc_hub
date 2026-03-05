@@ -1,5 +1,5 @@
 meta {
-  name: Soft Delete Category 
+  name: Soft Delete Category
   type: http
   seq: 6
 }
@@ -7,13 +7,18 @@ meta {
 delete {
   url: http://localhost:3001/categories/remove/:id
   body: none
-  auth: inherit
+  auth: bearer
 }
 
 params:path {
-  id: 
+  id: 13
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI3Mzk2MjcsImV4cCI6MTc3Mjc0MzIyN30.61EVoog1sD4QpzBzRrHZh1nc3YlT7aLNIDEb6P91BdI
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

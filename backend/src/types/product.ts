@@ -6,4 +6,5 @@ export interface CreateProductInput {
   price: number;
   stockQuantity: number;
   status: ProductStatus;
+  categoryId: number;
 }

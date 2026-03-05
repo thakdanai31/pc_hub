@@ -1,5 +1,9 @@
+import { id } from "zod/locales";
 import { prisma } from "../../lib/prisma";
-import type { CreateProductInput } from "../types/product";
+import type {
+  CreateProductInput,
+  UpdateProductInput,
+} from "../dto/product.dto";
 
 export const ProductModel = {
   getAll() {
@@ -14,11 +18,74 @@ export const ProductModel = {
     });
   },
 
-  create(categoryId: number, data: CreateProductInput) {
+  getById(id: number) {
+    return prisma.product.findFirst({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        status: true,
+        description: true,
+        category: { select: { id: true, name: true } },
+      },
+    });
+  },
+
+  create(data: CreateProductInput) {
     return prisma.product.create({
-      data: {
-        ...data,
-        categoryId,
+      data,
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        category: { select: { id: true, name: true } },
+      },
+    });
+  },
+
+  update(id: number, data: UpdateProductInput) {
+    return prisma.product.update({
+      where: { id },
+      data,
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        category: { select: { id: true, name: true } },
+      },
+    });
+  },
+
+  hardDelete(id: number) {
+    return prisma.product.delete({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+      },
+    });
+  },
+
+  softDelete(id: number) {
+    return prisma.product.update({
+      where: { id },
+      data: { status: "INACTIVE" },
+      select: {
+        id: true,
+        name: true,
+        status: true,
+      },
+    });
+  },
+
+  restore(id: number) {
+    return prisma.product.update({
+      where: { id },
+      data: { status: "ACTIVE" },
+      select: {
+        id: true,
+        name: true,
+        status: true,
       },
     });
   },

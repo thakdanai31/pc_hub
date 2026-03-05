@@ -7,15 +7,19 @@ meta {
 delete {
   url: http://localhost:3001/categories/:id
   body: none
-  auth: inherit
+  auth: bearer
 }
 
 params:path {
-  id: 12
+  id: 13
 }
 
 headers {
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NDAxMjEsImV4cCI6MTc3MjQ0MzcyMX0.Vyv8wXBzJRI0fgNzXD-nprWne41kCQealrpY8B0LxGs
+  ~Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NDAxMjEsImV4cCI6MTc3MjQ0MzcyMX0.Vyv8wXBzJRI0fgNzXD-nprWne41kCQealrpY8B0LxGs
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NzYxOTcsImV4cCI6MTc3MjQ3OTc5N30.3uGQK0ldQMeL6NMfICg5EPegwogHuWM5vvyEbMtRHeY
 }
 
 settings {

@@ -7,21 +7,20 @@ meta {
 put {
   url: http://localhost:3001/categories/:id
   body: json
-  auth: inherit
+  auth: bearer
 }
 
 params:path {
   id: 12
 }
 
-headers {
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NDAxMjEsImV4cCI6MTc3MjQ0MzcyMX0.Vyv8wXBzJRI0fgNzXD-nprWne41kCQealrpY8B0LxGs
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI3Mzk2MjcsImV4cCI6MTc3Mjc0MzIyN30.61EVoog1sD4QpzBzRrHZh1nc3YlT7aLNIDEb6P91BdI
 }
 
 body:json {
   {
-    "name": "Board",
-    "description": "ร่างกายp"
+    "name": "PC Com Set"
   }
 }
 

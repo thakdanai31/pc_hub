@@ -7,17 +7,21 @@ meta {
 post {
   url: http://localhost:3001/categories
   body: json
-  auth: inherit
+  auth: bearer
 }
 
 headers {
-  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NDAxMjEsImV4cCI6MTc3MjQ0MzcyMX0.Vyv8wXBzJRI0fgNzXD-nprWne41kCQealrpY8B0LxGs
+  ~Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI0NDAxMjEsImV4cCI6MTc3MjQ0MzcyMX0.Vyv8wXBzJRI0fgNzXD-nprWne41kCQealrpY8B0LxGs
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI3MzM4NTIsImV4cCI6MTc3MjczNzQ1Mn0.HoXs4FjBOZmi4VyXAWdh3b8RfXUxNZxJ2jXKaLzLQyc
 }
 
 body:json {
   {
-    "name": "Moniter7",
-    "description": "หน้าจอ"
+    "name": "PC Com Sut",
+    "description": "ชุดเซ็ตคอมประกอบสุดค้ม"
   }
 }
 

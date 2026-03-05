@@ -1,17 +1,17 @@
 meta {
-  name: Read Category
+  name: Read Product
   type: http
-  seq: 2
+  seq: 4
 }
 
 get {
-  url: http://localhost:3001/categories/:id
+  url: http://localhost:3001/products/:id
   body: none
   auth: inherit
 }
 
 params:path {
-  id: 10
+  id: 2
 }
 
 settings {

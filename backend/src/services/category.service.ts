@@ -1,8 +1,12 @@
+import type {
+  CreateCategoryInput,
+  UpdateCategoryInput,
+} from "../dto/category.dto";
 import { AppError } from "../errors/AppError";
 import { CategoryModel } from "../models/category.model";
 
 export const CategoryService = {
-  async createCategory(payload: { name: string; description: string }) {
+  async createCategory(payload: CreateCategoryInput) {
     const category = await CategoryModel.getByname(payload.name);
     if (category) {
       throw new AppError(403, `${payload.name} is already exists`);
@@ -21,10 +25,7 @@ export const CategoryService = {
     return category;
   },
 
-  async updateCategory(
-    id: number,
-    payload: { name: string; description: string },
-  ) {
+  async updateCategory(id: number, payload: UpdateCategoryInput) {
     const category = await CategoryModel.getById(id);
     if (!category) {
       throw new AppError(404, `Category ID ${id} not found`);

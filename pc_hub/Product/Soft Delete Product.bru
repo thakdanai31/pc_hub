@@ -1,0 +1,24 @@
+meta {
+  name: Soft Delete Product
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:3001/products/remove/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 3
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInBvc2l0aW9uIjoiQURNSU4iLCJpYXQiOjE3NzI3NDg5MDcsImV4cCI6MTc3Mjc1MjUwN30.v8tpJ_Be889J1ed04DRov7EBhNoE1PlF2mMGMGU1VS8
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
